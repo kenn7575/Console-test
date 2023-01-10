@@ -18,7 +18,6 @@ namespace Console_test
                 while (valid_string == false)
                 {
                     Console.Clear();
-
                     Console.WriteLine("What action do you want to perform? \n" +
                         "options: \n" +
                         "\n" +
@@ -44,7 +43,6 @@ namespace Console_test
                         "'IYIL' If Year Is Leap");
                     mode = Console.ReadLine();
                     mode = mode.ToUpper();
-
                     if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "IYIL" }.Contains(mode))
                     {
                         valid_string = true;
@@ -53,10 +51,7 @@ namespace Console_test
                     {
                         Console.WriteLine("Error: Command didn't mach anything.");
                     }
-
                 }
-
-
                 ChooseAction(mode);
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
@@ -65,7 +60,6 @@ namespace Console_test
                 void AAM()
                 {
                     Console.Clear();
-
                     Console.Clear();
                     Console.WriteLine("You chose add and multyply \n Type first number: ");
                     string a = Console.ReadLine();
@@ -76,12 +70,10 @@ namespace Console_test
                     double ab = double.Parse(a) + double.Parse(b);
                     Console.WriteLine(ab * double.Parse(c));
                 }
-
                 void CTF()
                 {
                     Console.Clear();
-
-                    Console.WriteLine("You chose add and multyply \n Type first number: ");
+                    Console.WriteLine("You chose Celsius To Fahrenheit. \n Type first number: ");
                     string celsius = Console.ReadLine();
                     if (double.Parse(celsius) < -271.15)
                     {
@@ -92,21 +84,17 @@ namespace Console_test
                         double placeholder = double.Parse(celsius) * 1.8;
                         Console.WriteLine(placeholder + 32);
                     }
-
                 }
                 void EO()
                 {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose Elementary Operations. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
-
                     Console.WriteLine("+:{0} -:{1} *:{2} /:{3}", a + b, a - b, a * b, a / b);
                 }
                 void IRTS()
                 {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose Is Result The Same? \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     if (a + b == a * b)
@@ -129,7 +117,6 @@ namespace Console_test
                 void MO()
                 {
                     Console.Clear();
-
                     int a = GetInputAndConvertToInt("You chose Modulo Operations. \n Type first number: ");
                     int b = GetInputAndConvertToInt("Type second number: ");
                     Console.WriteLine("The remainder is {0}", a % b);
@@ -138,31 +125,25 @@ namespace Console_test
                 {
                     Console.Clear();
                     double a = GetInputAndConvertToDouble("You chose The Cupe Of. \n Type a number: ");
-
                     Console.WriteLine("The remainder is {0}", a * a * a);
                 }
                 void STN()
                 {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose The Cupe Of. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     Console.WriteLine("Swap: [{0}, {1}]", b, a);
-
                 }
                 //Conditional methods
-
                 void AV()
                 {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose Absolute value. \n Type a number: ");
                     Console.WriteLine("The Absolute value of {1} is {0}", Math.Abs(a), a);
                 }
                 void DB()
                 {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose Divisible by 2 or 3. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     if ((a % 2 == 0 || a % 3 == 0) && (b % 2 == 0 || b % 3 == 0))
@@ -172,13 +153,11 @@ namespace Console_test
                     else
                     {
                         Console.WriteLine("One or both numbers can't be devided by 2 or 3. Result: {0}", a + b);
-
                     }
                 }
                 void ICOUL()
                 {
                     Console.Clear();
-
                     bool valid = false;
                     string str = "";
                     while (!valid)
@@ -195,12 +174,10 @@ namespace Console_test
                         }
                         bool isUpper = Char.IsUpper(str, 0) && Char.IsUpper(str, 1) && Char.IsUpper(str, 2);
                         Console.WriteLine("It is {0} that all characters is uppercase", isUpper);
-                    }
-                   
+                    }                  
                 } 
                 void IGTTO() {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose If greater than third one. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     double c = GetInputAndConvertToDouble("Type third number: ");
@@ -210,18 +187,14 @@ namespace Console_test
                     }
                     else if(a+b == c) {
                         Console.WriteLine("{0}+{1} ({2}) is the same as {3}", a, b, a + b, c);
-
                         }
                     else
                     {
                         Console.WriteLine("{0}+{1} ({2}) is more then {3}", a, b, a + b, c);
-
                     }
-
                 }
                 void INIE() {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose Is even? \n Type a number: ");
                     if(a % 2 == 0)
                     {
@@ -230,13 +203,11 @@ namespace Console_test
                     else
                     {
                         Console.WriteLine("{0} is not even.", a);
-
                     }
                 }
                 void ISA()
                 {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose If sorted ascending. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     double c = GetInputAndConvertToDouble("Type third number: ");
@@ -250,7 +221,6 @@ namespace Console_test
                 }
                 void PNOZ() {
                     Console.Clear();
-
                     double a = GetInputAndConvertToDouble("You chose Positive or negative or zero. \n Type a number: ");
                     if (a > 0)
                     {
@@ -263,11 +233,9 @@ namespace Console_test
                     else {
                         Console.WriteLine("{0} is zero.", a);
                     }
-
                 }
                 void IYIL() {
                     Console.Clear();
-
                     int a = GetInputAndConvertToInt("You chose If year is leap. \n Type a Year: ");
                     if (a%4 == 0)
                     {
@@ -276,10 +244,8 @@ namespace Console_test
                     else
                     {
                         Console.WriteLine("Year {0} is not leap.", a);
-
                     }
                 }
-
                 //error checking
                 double GetInputAndConvertToDouble(string message)
                 {
@@ -289,7 +255,6 @@ namespace Console_test
                     {
                         Console.WriteLine(message);
                         string input_value = Console.ReadLine();
-
                         bool result = Double.TryParse(input_value, out output_value);
                         if (result)
                         {
@@ -311,7 +276,6 @@ namespace Console_test
                     {
                         Console.WriteLine(message);
                         string input_value = Console.ReadLine();
-
                         bool result = Int32.TryParse(input_value, out output_value);
                         if (result)
                         {
@@ -325,74 +289,57 @@ namespace Console_test
                     }
                     return output_value;
                 }
-
                 //Openig menu
                 void ChooseAction(string action)
                 {
                     switch (action)
                     {
-
                         case "AAM":
                             AAM();
-
                             break;
                         case "CTF":
                             CTF();
-
                             break;
                         case "EO":
                             EO();
-
                             break;
                         case "IRTS":
                             IRTS();
-
                             break;
                         case "MO":
                             MO();
-
                             break;
                         case "TCO":
                             TCO();
-
                             break;
                         case "STN":
                             STN();
-
                             break;
                         case "AV":
                             AV();
-
                             break;
                         case "DB":
                             DB();
-
                             break;
                         case "ICOUL":
                             ICOUL();
-
                             break;
                         case "IGTTO":
                             IGTTO();
                             break;
                         case "INIE":
                             INIE();
-
                             break;
                         case "ISA":
                             ISA();
-
                             break;
                         case "PNOZ":
                             PNOZ();
-
                             break;
                         case "IYIL":
                             IYIL();
-
                             break;
                         default:
-
                             break;
                     }
                 }
