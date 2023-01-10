@@ -20,17 +20,32 @@ namespace Console_test
                     Console.Clear();
 
                     Console.WriteLine("What action do you want to perform? \n" +
-                        " options: \n" +
-                        " 'CTF': Celsius To Fahrenheit. \n" +
-                        " 'AAM': Add And Multiply. \n" +
+                        "options: \n" +
+                        "\n" +
+                        "Basics: \n" +
+                        "----------------------------------- \n" +
+                        "'CTF': Celsius To Fahrenheit. \n" +
+                        "'AAM': Add And Multiply. \n" +
                         "'EO' Elementary Operations. \n" +
                         "'IRTS' Is Result The Same? \n" +
                         "'MO' Modulo Operations. \n" +
                         "'TCO' The Cupe Of. \n" +
-                        "'STN' Swap Two Numbers.");
+                        "'STN' Swap Two Numbers.\n" +
+                        "\n" +
+                        "Conditional Statements: \n" +
+                        "----------------------------------- \n" +
+                        "'AV' Absolute value. \n" +
+                        "'DB' Divisible By 2 or 3. \n" +
+                        "'ICOUL' If Consists Cf Uppercase Letters. \n" +
+                        "'IGTTO' If Greater Than Third One. \n" +
+                        "'INIE' If Number Is Even. \n" +
+                        "'ISA' If Sorted Ascending. \n" +
+                        "'PNOZ' Positive, Negative Or Zero \n" +
+                        "'IYIL' If Year Is Leap");
                     mode = Console.ReadLine();
                     mode = mode.ToUpper();
-                    if (mode == "CTF" || mode == "AAM" || mode == "EO" || mode == "IRTS" || mode == "MO" || mode == "TCO" || mode == "STN")
+                    
+                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL", "INIE", "ISA", "PNOZ", "IYIL" }.Contains(mode))
                     {
                         valid = true;
                     }
@@ -38,6 +53,7 @@ namespace Console_test
                     {
                         Console.WriteLine("Error: Command didn't mach anything.");
                     }
+                    
                 }
 
 
@@ -45,7 +61,7 @@ namespace Console_test
 
                 Console.ReadKey();
             }
-            //methods
+            //basic methods
               void AAM()
             {
                 Console.Clear();
@@ -134,7 +150,18 @@ namespace Console_test
                 Console.WriteLine("Swap: [{0}, {1}]", b, a);
 
             }
+            //Conditional methods
 
+            void AV() {}
+            void DB() { }
+            void ICOUL() { }
+            void INIE() { }
+            void ISA() { }
+            void PNOZ() { }
+            void IYIL() { }
+
+            
+            //error checking
             double GetInputAndConvertToDouble(string message)
             {
                 bool valid = false;
@@ -179,6 +206,8 @@ namespace Console_test
                 }
                 return output_value;
             }
+
+            //Openig menu
             void ChooseAction(string action)
             {
                 switch (action)
@@ -212,14 +241,39 @@ namespace Console_test
                         STN();
 
                         break;
+                    case "AV":
+                        AV();
 
+                        break;
+                    case "DB":
+                        DB();
+
+                        break;
+                    case "ICOUL":
+                        ICOUL();
+
+                        break;
+                    case "INIE":
+                        INIE();
+
+                        break;
+                    case "ISA":
+                        ISA();
+
+                        break;
+                    case "PNOZ":
+                        PNOZ();
+
+                        break;
+                    case "IYIL":
+                        IYIL();
+
+                        break;
                     default:
 
                         break;
                 }
             }
-            
         }
-
     }
 }
