@@ -58,7 +58,7 @@ namespace Console_test
 
 
                 ChooseAction(mode);
-
+                Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
 
                 //basic methods
@@ -154,11 +154,15 @@ namespace Console_test
 
                 void AV()
                 {
+                    Console.Clear();
+
                     double a = GetInputAndConvertToDouble("You chose Absolute value. \n Type a number: ");
                     Console.WriteLine("The Absolute value of {1} is {0}", Math.Abs(a), a);
                 }
                 void DB()
                 {
+                    Console.Clear();
+
                     double a = GetInputAndConvertToDouble("You chose Divisible by 2 or 3. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     if ((a % 2 == 0 || a % 3 == 0) && (b % 2 == 0 || b % 3 == 0))
@@ -173,6 +177,8 @@ namespace Console_test
                 }
                 void ICOUL()
                 {
+                    Console.Clear();
+
                     bool valid = false;
                     string str = "";
                     while (!valid)
@@ -193,6 +199,8 @@ namespace Console_test
                    
                 } 
                 void IGTTO() {
+                    Console.Clear();
+
                     double a = GetInputAndConvertToDouble("You chose If greater than third one. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     double c = GetInputAndConvertToDouble("Type third number: ");
@@ -212,6 +220,8 @@ namespace Console_test
 
                 }
                 void INIE() {
+                    Console.Clear();
+
                     double a = GetInputAndConvertToDouble("You chose Is even? \n Type a number: ");
                     if(a % 2 == 0)
                     {
@@ -225,14 +235,51 @@ namespace Console_test
                 }
                 void ISA()
                 {
+                    Console.Clear();
+
                     double a = GetInputAndConvertToDouble("You chose If sorted ascending. \n Type first number: ");
                     double b = GetInputAndConvertToDouble("Type second number: ");
                     double c = GetInputAndConvertToDouble("Type third number: ");
+                    if (a<=b && b<=c) {
+                        Console.WriteLine("The list is sorted after value.{0}, {1}, {2}", a, b, c);
+                    }
+                    else
+                    {
+                        Console.WriteLine("The list is not sorted after value. {0}, {1}, {2}", a, b, c);
+                    }
+                }
+                void PNOZ() {
+                    Console.Clear();
+
+                    double a = GetInputAndConvertToDouble("You chose Positive or negative or zero. \n Type a number: ");
+                    if (a > 0)
+                    {
+                        Console.WriteLine("{a} is positive.");
+                    }
+                    else if (a<0)
+                    {
+                        Console.WriteLine("{a} is negative.");
+                    }
+                    else {
+                        Console.WriteLine("{0} is zero.", a);
+                    }
 
                 }
-                void PNOZ() { }
-                void IYIL() { }
-               
+                void IYIL() {
+                    Console.Clear();
+
+                    int a = GetInputAndConvertToInt("You chose If year is leap. \n Type a Year: ");
+                    if (a%4 == 0)
+                    {
+                        Console.WriteLine("Year {0} is leap.", a);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Year {0} is not leap.", a);
+
+                    }
+                }
+
                 //error checking
                 double GetInputAndConvertToDouble(string message)
                 {
