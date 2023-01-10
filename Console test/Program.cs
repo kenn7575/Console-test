@@ -45,7 +45,7 @@ namespace Console_test
                     mode = Console.ReadLine();
                     mode = mode.ToUpper();
 
-                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL", "INIE", "ISA", "PNOZ", "IYIL" }.Contains(mode))
+                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "IYIL" }.Contains(mode))
                     {
                         valid_string = true;
                     }
@@ -177,7 +177,7 @@ namespace Console_test
                     string str = "";
                     while (!valid)
                     {
-                        Console.WriteLine("You chose Divisible by 2 or 3. \n Type a word thats only 3 character long : ");
+                        Console.WriteLine("You chose If consists of uppercase letters. \n Type a word thats only 3 character long : ");
                         str = Console.ReadLine();
                         if (str.Length == 3)
                         {
@@ -191,11 +191,48 @@ namespace Console_test
                         Console.WriteLine("It is {0} that all characters is uppercase", isUpper);
                     }
                    
+                } 
+                void IGTTO() {
+                    double a = GetInputAndConvertToDouble("You chose If greater than third one. \n Type first number: ");
+                    double b = GetInputAndConvertToDouble("Type second number: ");
+                    double c = GetInputAndConvertToDouble("Type third number: ");
+                    if(a+b < c)
+                    {
+                        Console.WriteLine("{0}+{1} ({2}) is less or same as {3}", a, b, a+b, c );
+                    }
+                    else if(a+b == c) {
+                        Console.WriteLine("{0}+{1} ({2}) is the same as {3}", a, b, a + b, c);
+
+                        }
+                    else
+                    {
+                        Console.WriteLine("{0}+{1} ({2}) is more then {3}", a, b, a + b, c);
+
+                    }
+
                 }
-                void INIE() { }
-                void ISA() { }
+                void INIE() {
+                    double a = GetInputAndConvertToDouble("You chose Is even? \n Type a number: ");
+                    if(a % 2 == 0)
+                    {
+                        Console.WriteLine("{0} is even.",a);
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0} is not even.", a);
+
+                    }
+                }
+                void ISA()
+                {
+                    double a = GetInputAndConvertToDouble("You chose If sorted ascending. \n Type first number: ");
+                    double b = GetInputAndConvertToDouble("Type second number: ");
+                    double c = GetInputAndConvertToDouble("Type third number: ");
+
+                }
                 void PNOZ() { }
                 void IYIL() { }
+               
                 //error checking
                 double GetInputAndConvertToDouble(string message)
                 {
@@ -287,6 +324,9 @@ namespace Console_test
                         case "ICOUL":
                             ICOUL();
 
+                            break;
+                        case "IGTTO":
+                            IGTTO();
                             break;
                         case "INIE":
                             INIE();
