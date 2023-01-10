@@ -15,7 +15,9 @@ namespace Console_test
             bool valid = false;
             while (valid == false)
             {
-            Console.WriteLine("What action do you want to perform? \n options: \n 'CTF': Celsius To Fahrenheit. \n 'AAM': Add And Multiply.");
+                Console.Clear();
+
+                Console.WriteLine("What action do you want to perform? \n options: \n 'CTF': Celsius To Fahrenheit. \n 'AAM': Add And Multiply.");
             mode = Console.ReadLine();
             mode = mode.ToUpper();
                 if (mode == "CTF" || mode == "AAM")
@@ -24,7 +26,7 @@ namespace Console_test
                 }
                 else
                 {
-                    Console.WriteLine("Error: Command didn't mach anything.");
+                    Console.WriteLine("Error: Command didn't mach anything. ");
                 }
             }
             
