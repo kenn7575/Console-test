@@ -49,6 +49,8 @@ namespace Console_test
               void AAM()
             {
                 Console.Clear();
+
+                Console.Clear();
                 Console.WriteLine("You chose add and multyply \n Type first number: ");
                 string a = Console.ReadLine();
                 Console.WriteLine("Type second number: ");
@@ -78,6 +80,8 @@ namespace Console_test
             }
               void EO()
             {
+                Console.Clear();
+
                 double a = GetInputAndConvertToDouble("You chose Elementary Operations. \n Type first number: ");
                 double b = GetInputAndConvertToDouble("Type second number: ");
 
@@ -85,6 +89,8 @@ namespace Console_test
             }
             void IRTS()
             {
+                Console.Clear();
+
                 double a = GetInputAndConvertToDouble("You chose Is Result The Same? \n Type first number: ");
                 double b = GetInputAndConvertToDouble("Type second number: ");
                 if (a + b == a * b)
@@ -106,18 +112,30 @@ namespace Console_test
             }
               void MO()
             {
+                Console.Clear();
 
+                int a = GetInputAndConvertToInt("You chose Modulo Operations. \n Type first number: ");
+                int b = GetInputAndConvertToInt("Type second number: ");
+                Console.WriteLine("The remainder is {0}", a % b);
             }
               void TCO()
             {
-
+                Console.Clear();
+                double a = GetInputAndConvertToDouble("You chose The Cupe Of. \n Type a number: ");
+               
+                Console.WriteLine("The remainder is {0}", a * a * a);
             }
               void STN()
             {
+                Console.Clear();
+
+                double a = GetInputAndConvertToDouble("You chose The Cupe Of. \n Type first number: ");
+                double b = GetInputAndConvertToDouble("Type second number: ");
+                Console.WriteLine("Swap: [{0}, {1}]", b, a);
 
             }
 
-             double GetInputAndConvertToDouble(string message)
+            double GetInputAndConvertToDouble(string message)
             {
                 bool valid = false;
                 double output_value = 0;
@@ -133,12 +151,35 @@ namespace Console_test
                     }
                     else
                     {
-                        Console.WriteLine("Error: could not convert '{0}' to a double", output_value);
+                        Console.Clear();
+                        Console.WriteLine("Error: could not convert {0} to int", input_value );
                     }
                 }
                 return output_value;
             }
-              void ChooseAction(string action)
+            int GetInputAndConvertToInt(string message)
+            {
+                bool valid = false;
+                int output_value = 0;
+                while (!valid)
+                {
+                    Console.WriteLine(message);
+                    string input_value = Console.ReadLine();
+
+                    bool result = Int32.TryParse(input_value, out output_value);
+                    if (result)
+                    {
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Error: could not convert '{0}' to a double", input_value);
+                    }
+                }
+                return output_value;
+            }
+            void ChooseAction(string action)
             {
                 switch (action)
                 {
