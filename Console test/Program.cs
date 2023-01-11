@@ -77,14 +77,15 @@ namespace Console_test
                 {
                     Console.Clear();
                     Console.Clear();
-                    Console.WriteLine("You chose add and multyply \n Type first number: ");
-                    string a = Console.ReadLine();
-                    Console.WriteLine("Type second number: ");
-                    string b = Console.ReadLine();
-                    Console.WriteLine("Type third number: ");
-                    string c = Console.ReadLine();
-                    double ab = double.Parse(a) + double.Parse(b);
-                    Console.WriteLine(ab * double.Parse(c));
+
+                    double a = GetInputAndConvertToDouble("You chose add and multyply \n Type first number: ");
+
+                    double b = GetInputAndConvertToDouble("Type second number: ");
+                    
+                    double c = GetInputAndConvertToDouble("Type third number: ");
+
+                    double ab = a + b;
+                    Console.WriteLine(ab * c);
                 }
                 void CTF()
                 {
