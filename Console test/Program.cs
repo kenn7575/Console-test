@@ -46,7 +46,8 @@ namespace Console_test
                         "'MT' Multiplication table \n" +
                         "'TBN' The biggest number \n" +
                         "'TNTEO' Two 7s next to each other \n" +
-                        "'SOE' Sieve of Eratosthenes \n" +
+                        "'TIA' Three increasing adjacent \n"
++                       "'SOE' Sieve of Eratosthenes \n" +
                         "'ESM' Extract string M \n" +
                         "'FSOLM' Full sequence of letters M \n" +
                         "'SA' Sum and average \n" +
@@ -58,7 +59,7 @@ namespace Console_test
                     mode = Console.ReadLine();
 
                     mode = mode.ToUpper();
-                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "IYIL", "MT", "TBN", "TNTEO", "SOE", "ESM", "FSOLM", "SA", "DT", "TPO" }.Contains(mode))
+                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "TIA", "IYIL", "MT", "TBN", "TNTEO", "SOE", "ESM", "FSOLM", "SA", "DT", "TPO" }.Contains(mode))
                     {
                         valid_string = true;
                     }
@@ -262,8 +263,11 @@ namespace Console_test
                     }
                 }
                 //loops
+
                 void MT() {
                     Console.Clear();
+                    Console.WriteLine("You chose Multiplication table.");
+
                     int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
                     for(int i = 0; i < 10; i++)
                     {
@@ -279,6 +283,8 @@ namespace Console_test
                 }
                 void TBN() {
                     Console.Clear();
+                    Console.WriteLine("You chose The biggest number.");
+
                     int[] numbers = { 1, 5, 2, 3, 8, 6, 7, 9, 4, 10 };
                     int biggestNumber = 0;
                     foreach(int i in numbers)
@@ -291,7 +297,10 @@ namespace Console_test
                     Console.WriteLine("Biggest number of [1, 5, 2, 3, 8, 6, 7, 9, 4, 10] is {0}", biggestNumber);
                 }
                 void TNTEO() {
+
                     Console.Clear();
+                    Console.WriteLine("You chose Two 7s next to each other.");
+
                     int[] numbers = { 7, 7, 2, 3, 7, 7, 4, 9, 7, 7 };
                     int index = 0;
                     int numberOf7sNextToEachOther = 0;
@@ -320,20 +329,98 @@ namespace Console_test
                     Console.Write("] \n");
                     Console.WriteLine("The number 7 appers next to each another {0} times", numberOf7sNextToEachOther);
                 }
+                void TIA()
+                {
+                    Console.Clear();
+                    Console.WriteLine("You chose Three increasing adjacent.");
+                    
+                    int[] numbers = { 7, 7, 2, 3, 7, 8, 2, 9, 7, 7 };
+                    int index = 0;
+                    Console.Write("[");
+                    foreach (int i in numbers)
+                    {
+                        Console.Write(i + ", ");
+                    }
+                    Console.Write("] \n");
+                    bool isAdjacent = false;
+                    foreach (int i in numbers)
+                    {
+                        //if at last index, stop
+                        if (index == numbers.Length - 3)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            if (numbers[index+1] == numbers[index] + 1 && (numbers[index + 2] == numbers[index] + 1))
+                            {
+                                isAdjacent = true;
+                            }
+                        }
+                        index++;
+                    }
+                    if (isAdjacent == true)
+                    {
+                        Console.WriteLine("True. There are 3 adjacent numbers");
+                    }
+                    else
+                    {
+                        Console.WriteLine("False. There are not 3 adjacent numbers");
+                    }
+                }
                 void SOE() {
                     Console.Clear();
+                    Console.WriteLine("You chose Sieve of Eratosthenes.");
+                    int a = GetInputAndConvertToInt("Type number: ");
+                    for(int i = 2; i <= a; i++) {
+                        if(i % 3 == 1 && i % 2 == 1)
+                        {
+                            Console.Write(i+", ");
+                            Console.Write("\n");
+                        }
+                    }
                 }
-                    Console.Clear();
+                  
                 void ESM() {
-                Console.Clear();
+                    Console.Clear();
+                    Console.WriteLine("You chose Extract string M.");
+                    string input = Console.ReadLine();
+                    int first = input.IndexOf("##") + 2;
+                    int second = input.IndexOf("##", first);
+
+                    if (second - first == 0)
+                    {
+                        Console.WriteLine("empty string");
+                    }
+
+                    else 
+                    {
+                        Console.WriteLine(input.Substring(first, second - first));
+                    }
 
                 }
                 void FSOLM() {
                 Console.Clear();
+                    Console.WriteLine("You chose Full sequence of letters M.");
+                    string input = Console.ReadLine();
+                    if (!(input[0] >= input[1]))
+                    {
+                        string alphabet_between = "";
+
+                    for (int i = input[0]; i <= input[1]; i++)
+                    {
+                        alphabet_between += Convert.ToString(Convert.ToChar(i));
+                    }
+
+                    Console.WriteLine( alphabet_between);
+                    }
+
+                    
 
                 }
                 void SA() { 
                 Console.Clear();
+                    Console.WriteLine("You chose Full sequence of letters M.");
 
                 }
                 void DT() {
@@ -464,6 +551,9 @@ namespace Console_test
                             break;
                         case "TPO":
                             TPO();
+                            break;
+                        case "TIA":
+                            TIA();
                             break;
                         default:
                             break;
