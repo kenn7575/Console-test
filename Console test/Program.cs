@@ -419,17 +419,38 @@ namespace Console_test
 
                 }
                 void SA() { 
-                Console.Clear();
-                    Console.WriteLine("You chose Full sequence of letters M.");
-
+                    Console.Clear();
+                    int a = GetInputAndConvertToInt("You chose Sum and average. \nType first number: ");
+                    int b = GetInputAndConvertToInt("Type second number: ");
+                    int[] list= {a,b};
+                    double average = list.Average();
+                    Console.WriteLine("average: {0}, sum: {1}", average, a + b);
                 }
                 void DT() {
-                Console.Clear();
+                    Console.Clear();
+                    Console.WriteLine("You chose Draw triangle.");
+                    Console.WriteLine("*");
 
+                    for (int i = 1; i < 10; i++)
+                    {
+                        for (int j = 1; j != i + 3; j++)
+                        {
+                            Console.Write("*");
+                        }
+                        Console.Write("\n");
+                    }
                 }
                 void TPO() {
                 Console.Clear();
-
+                    int a = GetInputAndConvertToInt("You chose The Power Of. \nType first number: ");
+                    int b = GetInputAndConvertToInt("Type second number: ");
+                    int i = 1;
+                    while (i < b)
+                    {
+                        a = a * a;
+                        i++;
+                    }
+                    Console.WriteLine(a);
                 }
 
                 //error checking
