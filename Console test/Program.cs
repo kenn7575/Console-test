@@ -40,10 +40,25 @@ namespace Console_test
                         "'INIE' If Number Is Even. \n" +
                         "'ISA' If Sorted Ascending. \n" +
                         "'PNOZ' Positive, Negative Or Zero \n" +
-                        "'IYIL' If Year Is Leap");
+                        "'IYIL' If Year Is Leap \n" +
+                        "\n" +
+                        "Loops: \n" +
+                        "'MT' Multiplication table \n" +
+                        "'TBN' The biggest number \n" +
+                        "'TNTEO' Two 7s next to each other \n" +
+                        "'SOE' Sieve of Eratosthenes \n" +
+                        "'ESM' Extract string M \n" +
+                        "'FSOLM' Full sequence of letters M \n" +
+                        "'SA' Sum and average \n" +
+                        "'DT' Draw triangle \n" +
+                        "'TPO' To the power of"
+
+
+                        );
                     mode = Console.ReadLine();
+
                     mode = mode.ToUpper();
-                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "IYIL" }.Contains(mode))
+                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "IYIL", "MT", "TBN", "TNTEO", "SOE", "ESM", "FSOLM", "SA", "DT", "TPO" }.Contains(mode))
                     {
                         valid_string = true;
                     }
@@ -246,6 +261,90 @@ namespace Console_test
                         Console.WriteLine("Year {0} is not leap.", a);
                     }
                 }
+                //loops
+                void MT() {
+                    Console.Clear();
+                    int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                    for(int i = 0; i < 10; i++)
+                    {
+                        int index = 0;
+                        foreach(int j in numbers)
+                        {
+                            Console.Write(j*(i+1));
+                            Console.Write(", ");
+                            index++;
+                        }
+                        Console.Write("\n");
+                    }
+                }
+                void TBN() {
+                    Console.Clear();
+                    int[] numbers = { 1, 5, 2, 3, 8, 6, 7, 9, 4, 10 };
+                    int biggestNumber = 0;
+                    foreach(int i in numbers)
+                    {
+                        if(i>biggestNumber)
+                        {
+                            biggestNumber= i;
+                        }
+                    }
+                    Console.WriteLine("Biggest number of [1, 5, 2, 3, 8, 6, 7, 9, 4, 10] is {0}", biggestNumber);
+                }
+                void TNTEO() {
+                    Console.Clear();
+                    int[] numbers = { 7, 7, 2, 3, 7, 7, 4, 9, 7, 7 };
+                    int index = 0;
+                    int numberOf7sNextToEachOther = 0;
+                    foreach(int i in numbers)
+                    {
+                       
+                        //if at last index, stop
+                        if (index == numbers.Length - 1)
+                        {
+                            break;
+                        } 
+                        else
+                        {
+                            if(i == numbers[index + 1])
+                            {
+                                numberOf7sNextToEachOther++;
+                            }
+                        }
+                        index++;
+                    }
+                    Console.Write("[");
+                    foreach(int i in numbers)
+                    {
+                        Console.Write(i+", ");
+                    }
+                    Console.Write("] \n");
+                    Console.WriteLine("The number 7 appers next to each another {0} times", numberOf7sNextToEachOther);
+                }
+                void SOE() {
+                    Console.Clear();
+                }
+                    Console.Clear();
+                void ESM() {
+                Console.Clear();
+
+                }
+                void FSOLM() {
+                Console.Clear();
+
+                }
+                void SA() { 
+                Console.Clear();
+
+                }
+                void DT() {
+                Console.Clear();
+
+                }
+                void TPO() {
+                Console.Clear();
+
+                }
+
                 //error checking
                 double GetInputAndConvertToDouble(string message)
                 {
@@ -338,6 +437,33 @@ namespace Console_test
                             break;
                         case "IYIL":
                             IYIL();
+                            break;
+                        case "MT":
+                            MT();
+                            break;
+                        case "TBN":
+                            TBN();
+                            break;
+                        case "SOE":
+                            SOE();
+                            break;
+                        case "ESM":
+                            ESM();
+                            break;
+                        case "FSOLM":
+                            FSOLM();
+                            break;
+                        case "SA":
+                            SA();
+                            break;
+                        case "TNTEO":
+                            TNTEO();
+                            break;
+                        case "DT":
+                            DT();
+                            break;
+                        case "TPO":
+                            TPO();
                             break;
                         default:
                             break;
