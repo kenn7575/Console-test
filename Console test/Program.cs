@@ -52,14 +52,23 @@ namespace Console_test
                         "'FSOLM' Full sequence of letters M \n" +
                         "'SA' Sum and average \n" +
                         "'DT' Draw triangle \n" +
-                        "'TPO' To the power of"
-
-
+                        "'TPO' To the power of \n" +
+                         "\n" +
+                        "String: \n" +
+                        "'AD' Add separator. \n" +
+                        "'IP' Is palindrome? \n" +
+                        "'LOS' Length of string. \n" +
+                        "'SIRO' String in reverse order. \n"+
+                        "'NOW' Number of words. \n"+
+                        "'RWO' Reverse word order. \n"+
+                        "'HMO' How Many Occurrences? \n"+
+                        "'SCD' Sort char \n" +
+                        "'CS' Compress string."
                         );
                     mode = Console.ReadLine();
 
                     mode = mode.ToUpper();
-                    if (new[] { "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "TIA", "IYIL", "MT", "TBN", "TNTEO", "SOE", "ESM", "FSOLM", "SA", "DT", "TPO" }.Contains(mode))
+                    if (new[] { "AD","IP","LOS","SIRO","NOW","RWO","HMO","CSD","CS", "CTF", "AAM", "EO", "IRTS", "MO", "TCO", "STN", "AV", "DB", "ICOUL" , "IGTTO", "INIE", "ISA", "PNOZ", "TIA", "IYIL", "MT", "TBN", "TNTEO", "SOE", "ESM", "FSOLM", "SA", "DT", "TPO" }.Contains(mode))
                     {
                         valid_string = true;
                     }
@@ -453,6 +462,83 @@ namespace Console_test
                     }
                     Console.WriteLine(a);
                 }
+                void AD()
+                {
+                    Console.Clear();
+                    Console.WriteLine("You chose Add separator. \nType something: ");
+                    string a = Console.ReadLine();
+                    Console.WriteLine("Type seperator: ");
+                    string b = Console.ReadLine();
+                    string newString = "";
+                    if (a.Length > 0)
+                    {
+                        for(int i = 0; i<a.Length; i++)
+                        {
+                            if (i != a.Length - 1)
+                            {
+                                newString += a[i] + b;
+                            }
+                            else
+                            {
+                                newString += a[i];
+                            }
+                        }
+                    }
+                    Console.WriteLine(newString);
+                }
+                void IP()
+                {
+                    Console.Clear();
+                    Console.WriteLine("You chose Is palindrome. \nType something: ");
+                    string a = Console.ReadLine();
+                    bool b = false;
+                    if(a.SequenceEqual(a.Reverse()))
+                    { b= true; }
+                    Console.WriteLine("It is {1} that {0} is palindrome", a, b);
+                }
+                void LOS()
+                {
+                    Console.Clear();
+                    Console.WriteLine("You chose Length og string. \nType something: ");
+                    string a = Console.ReadLine();
+                    int counter = 0;
+                    foreach(char i in a)
+                    {
+                        counter++;
+                    }
+                    Console.WriteLine("Length of {0} is {1}", a, counter);
+                }
+                void SIRO()
+                {
+                    Console.Clear();
+                    Console.WriteLine("You chose string in reverse order. \nType something: ");
+                    string a = Console.ReadLine();
+
+                    char[] charArray = a.ToCharArray();
+                    ;
+
+                    Console.WriteLine("Reverse: {0}", charArray);
+                }
+                void NOW()
+                {
+                    Console.Clear();
+                }
+                void RWO()
+                {
+                    Console.Clear();
+                }
+                void HMO()
+                {
+                    Console.Clear();
+                }
+                void CSD()
+                {
+                    Console.Clear();
+                }
+                void CS()
+                {
+                    Console.Clear();
+                }
 
                 //error checking
                 double GetInputAndConvertToDouble(string message)
@@ -576,6 +662,33 @@ namespace Console_test
                             break;
                         case "TIA":
                             TIA();
+                            break;
+                        case "AD":
+                            AD();
+                            break;
+                        case "IP":
+                            IP();
+                            break;
+                        case "LOS":
+                            LOS();
+                            break;
+                        case "SIRO":
+                            SIRO();
+                            break;
+                        case "NOW":
+                            NOW();
+                            break;
+                        case "RWO":
+                            RWO();
+                            break;
+                        case "HMO":
+                            HMO();
+                            break;
+                        case "CSD":
+                            CSD();
+                            break;
+                        case "CS":
+                            CS();
                             break;
                         default:
                             break;
