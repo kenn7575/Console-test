@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Console_test
@@ -62,7 +64,7 @@ namespace Console_test
                         "'NOW' Number of words. \n"+
                         "'RWO' Reverse word order. \n"+
                         "'HMO' How Many Occurrences? \n"+
-                        "'SCD' Sort char \n" +
+                        "'SCD' Sort characters adscending. \n" +
                         "'CS' Compress string."
                         );
                     mode = Console.ReadLine();
@@ -514,30 +516,91 @@ namespace Console_test
                     Console.WriteLine("You chose string in reverse order. \nType something: ");
                     string a = Console.ReadLine();
 
-                    char[] charArray = a.ToCharArray();
-                    ;
+                   string b = String.Empty;
+                    for (int i = a.Length - 1; i >= 0; i--)
+                    {
+                        b += a[i];
+                    };
 
-                    Console.WriteLine("Reverse: {0}", charArray);
+                    Console.WriteLine("Reverse: {0}", b);
                 }
                 void NOW()
                 {
                     Console.Clear();
+                    Console.WriteLine("You chose Number of words. \nType something: ");
+                    string a = Console.ReadLine();
+                    int CountSpaces = 0;
+                    foreach(char i in a)
+                    {
+                        if (i == ' ')
+                        {
+                            CountSpaces++;
+                        }
+                    }
+                    Console.WriteLine("There are {0} words in {1}", CountSpaces + 1, a);
                 }
                 void RWO()
                 {
                     Console.Clear();
+                    Console.WriteLine("You chose Revert words order. \nType something: ");
+                    string a = Console.ReadLine();
+                    string[] words = a.Split(' ');
+                    string reverse = "";
+                    for (int i = words.Length -1; i>=0; i--)
+                    {
+                        reverse += words[i] +" ";
+                    }
+                    Console.WriteLine(reverse);
                 }
                 void HMO()
                 {
                     Console.Clear();
+                    Console.WriteLine("You chose How many accurences? \nType something: ");
+                    string a = Console.ReadLine();
+                    Console.WriteLine("Type what accurences you want to find in the string: ");
+                    string b = Console.ReadLine();
+
+                    int count = Regex.Matches(a, b).Count;
+                    Console.WriteLine("{0} appers in {1} {2} times.", b, a, count);
                 }
                 void CSD()
                 {
                     Console.Clear();
+                    Console.WriteLine("You chose  Sort characters adscending. \nType something: ");
+                    string a = Console.ReadLine();
+                    char[] chars = a.ToCharArray();
+                    Array.Sort(chars);
+                    string output = "";
+                    foreach(char c in chars)
+                    {
+                        output += c;
+                    }
+                    Console.WriteLine("sorted: {0}", output);
                 }
                 void CS()
                 {
                     Console.Clear();
+                    Console.WriteLine("You chose Compress string. \nType something: ");
+                    string str = Console.ReadLine();
+                    var count = 0;
+                    var last = str[0];
+                    var newStr = string.Empty;
+
+                    foreach (var s in str)
+                    {
+                        if (s == last)
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            newStr += last.ToString() + count;
+                            last = s;
+                            count = 1;
+                        }
+                    }
+                    newStr += last.ToString() + count;
+                    Console.WriteLine( newStr);
                 }
 
                 //error checking
